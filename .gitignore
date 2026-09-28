@@ -1,0 +1,16 @@
+# Backend
+backend/.env
+backend/node_modules/
+
+# Frontend
+student-frontend/node_modules/
+student-frontend/dist/
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
