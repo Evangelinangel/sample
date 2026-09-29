@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function App() {
 
     const [students, setStudents] = useState([]);
@@ -21,9 +21,7 @@ function App() {
 
         try {
 
-            const response = await axios.get(
-                "http://localhost:8000/students"
-            );
+            const response = await axios.get(`${API_URL}/students`)
 
             setStudents(response.data);
 
@@ -63,7 +61,7 @@ function App() {
             if (editingId) {
 
                 await axios.put(
-                    `http://localhost:8000/students/${editingId}`,
+    `${API_URL}/students/${editingId}`,
                     formData
                 );
 
@@ -72,7 +70,7 @@ function App() {
             } else {
 
                 await axios.post(
-                    "http://localhost:8000/students",
+    `${API_URL}/students`,
                     formData
                 );
 
@@ -116,8 +114,8 @@ function App() {
         try {
 
             await axios.delete(
-                `http://localhost:8000/students/${id}`
-            );
+    `${API_URL}/students/${id}`
+)
 
             fetchStudents();
 
